@@ -28,20 +28,20 @@ body {
 }
 
 .cv-container {
-    max-width: 800px;
+    max-width: 850px;
     margin: 20px auto;
     background: var(--bg-color);
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 280px 1fr;
     min-height: 100vh;
 }
 
 /* Sidebar Styling */
 .sidebar {
     background-color: var(--sidebar-bg);
-    padding: 25px 35px;
-    border-bottom: 1px solid var(--border-color);
+    padding: 25px;
+    border-right: 1px solid var(--border-color);
 }
 
 .sidebar section {
@@ -60,11 +60,13 @@ body {
     padding-bottom: 3px;
 }
 
-.sidebar h2::before,
-.sidebar h2::after {
-    content: '•';
-    margin: 0 10px;
-    color: var(--primary-color);
+.sidebar h2::before {
+    content: '';
+    margin-right: 8px;
+    width: 4px;
+    height: 1.2rem;
+    background: var(--primary-color);
+    display: inline-block;
 }
 
 .details-content p {
@@ -82,15 +84,19 @@ body {
 .hobbies-list,
 .languages-list {
     list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
 }
 
 .skills-list li,
 .hobbies-list li,
 .languages-list li {
-    font-size: 0.85rem;
-    margin-bottom: 8px;
-    padding-bottom: 3px;
-    border-bottom: 1px solid var(--border-color);
+    font-size: 0.8rem;
+    background: #e9ecef;
+    padding: 3px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
 }
 
 /* Main Content Styling */
@@ -101,8 +107,9 @@ body {
 .header {
     grid-column: 1 / -1;
     text-align: center;
-    padding: 15px 15px 10px 15px;
+    padding: 20px 15px;
     border-bottom: 1px solid var(--border-color);
+    background: white;
 }
 
 .header h1 {
@@ -266,25 +273,13 @@ body {
 /* Responsive - Maintain 2 columns but scale down */
 /* Responsive Adjustments */
 @media (max-width: 850px) {
-    body {
-        padding: 5px;
-    }
-
     .cv-container {
-        margin: 0;
-        width: 100%;
+        grid-template-columns: 1fr;
     }
 
-    .sidebar, .main-content {
-        padding: 20px 15px;
-    }
-
-    .header h1 {
-        font-size: 1.4rem;
-    }
-
-    .section-title {
-        font-size: 1rem;
+    .sidebar {
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
     }
 }
 
